@@ -8,7 +8,6 @@ public class Pipe {
     private int height;
     private Image image;
     private int velocityX;
-    boolean passed = false;
 
     public Pipe(int posX, int posY, int width, int height, Image image) {
         this.posX = posX;
@@ -18,7 +17,6 @@ public class Pipe {
         this.image = image;
 
         this.velocityX = -5;
-        this.passed = false;
     }
 
     public int getPosX() {
@@ -61,13 +59,5 @@ public class Pipe {
 
     public void setVelocityX(int velocityX) {
         this.velocityX = velocityX;
-    }
-
-    public boolean isPassed() {
-        return passed;
-    }
-
-    public void setPassed(boolean passed) {
-        this.passed = passed;
     }
 }

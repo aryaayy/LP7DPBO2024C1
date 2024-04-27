@@ -39,14 +39,17 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
         addKeyListener(this);
         add(pointLabel);
 
+        // set image
         backgroundImage = new ImageIcon(getClass().getResource("assets/background.png")).getImage();
         birdImage = new ImageIcon(getClass().getResource("assets/bintang.png")).getImage();
         lowerPipeImage = new ImageIcon(getClass().getResource("assets/lowerPipe.png")).getImage();
         upperPipeImage = new ImageIcon(getClass().getResource("assets/upperPipe.png")).getImage();
 
+        // set object
         player = new Player(playerStartPosX, playerStartPosY, playerWidth, playerHeight, birdImage, playerPoint);
         pipes = new ArrayList<Pipe>();
 
+        // set timer
         pipesCooldown = new Timer(1500, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
@@ -65,6 +68,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     }
 
     private void draw(Graphics g) {
+        // menggambar image pada frame
         g.drawImage(backgroundImage, 0, 0, frameWidth, frameHeight, null);
 
         g.drawImage(player.getImage(), player.getPosX(), player.getPosY(), player.getWidth(), player.getHeight(), null);
@@ -115,12 +119,15 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     }
 
     public void placePipes(){
+        // menentukan posisi pipa
         int randomPipePosY = (int) (pipeStartPosY - pipeHeight/4 - Math.random() * (pipeHeight/2));
         int openingSpace = frameHeight/4;
 
+        // menambahkan pipa atas
         Pipe upperPipe = new Pipe(pipeStartPosX, randomPipePosY, pipeWidth, pipeHeight, upperPipeImage);
         pipes.add(upperPipe);
 
+        // menambahkan pipa bawah
         Pipe lowerPipe = new Pipe(pipeStartPosX, randomPipePosY + pipeHeight + openingSpace, pipeWidth, pipeHeight, lowerPipeImage);
         pipes.add(lowerPipe);
     }
@@ -138,6 +145,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e){
+        // gerak keatas jika space bar ditekan
         if(e.getKeyCode() == KeyEvent.VK_SPACE){
             player.setVelocityY(-10);
         }
