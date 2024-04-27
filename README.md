@@ -4,7 +4,11 @@ Latihan Praktikum 7 dalam mata kuliah DPBO
 untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin.*
 
 ## Desain Program
-null
+1. Class App: Berfungsi sebagai main
+2. Class Player: Berisi atribut-atribut yang dimiliki object pemain (burung), seperti koordinat, tinggi, lebar, point dll
+3. Class Pipe: Menampung object pipa dalam game yang berfungsi sebagai rintangan bagi pemain, memiliki atribut seperti koordinat, tinggi, lebar,
+4. Class FlappyBird: Layar utama dari game, berisi komponen-komponen yang dibutuhkan dalam game seperti object player, pipe, handling input, dll
+5. Class StartMenu: Merupakan menu saat game pertama kali di-run
 
 ## Alur Program
 1. Saat pertama kali aplikasi dijalankan, akan muncul frame yang di dalamnya terdapat tombol `Start`
